@@ -1,6 +1,6 @@
-class IndustriesController < ApplicationController
+class IndustryController < ApplicationController
   def index
-    @industries = Industry.all
+    @industry = Industry.all
   end
 
   def show
@@ -16,7 +16,7 @@ class IndustriesController < ApplicationController
     @industry.industry_name = params[:industry_name]
 
     if @industry.save
-      redirect_to "/industries", :notice => "Industry created successfully."
+      redirect_to "/industry", :notice => "Industry created successfully."
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class IndustriesController < ApplicationController
     @industry.industry_name = params[:industry_name]
 
     if @industry.save
-      redirect_to "/industries", :notice => "Industry updated successfully."
+      redirect_to "/industry", :notice => "Industry updated successfully."
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class IndustriesController < ApplicationController
 
     @industry.destroy
 
-    redirect_to "/industries", :notice => "Industry deleted."
+    redirect_to "/industry", :notice => "Industry deleted."
   end
 end

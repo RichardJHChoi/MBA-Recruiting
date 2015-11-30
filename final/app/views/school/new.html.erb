@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @region.errors.any? %>
-  <% @region.errors.full_messages.each do |message| %>
+<% if @school.errors.any? %>
+  <% @school.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,29 +9,29 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Region</h3>
+  <h3>Add School</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_region" method="post">
+    <form action="/create_school" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for region_name -->
+      <!-- Label and input for school_name -->
       <div class="form-group">
-        <label for="region_name" class="control-label">
-          Region name
+        <label for="school_name" class="control-label">
+          School name
         </label>
 
-        <input type="text" id="region_name" name="region_name" placeholder="Region name" class="form-control" value="<%= @region.region_name %>">
+        <input type="text" id="school_name" name="school_name" placeholder="School name" class="form-control" value="<%= @school.school_name %>">
       </div>
 
       <button class="btn btn-success">
-        Create Region
+        Create School
       </button>
       or
-      <a href="/regions">Cancel</a>
+      <a href="/school">Cancel</a>
     </form>
   </div>
 </div>

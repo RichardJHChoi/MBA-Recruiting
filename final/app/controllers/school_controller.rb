@@ -1,6 +1,6 @@
-class SchoolsController < ApplicationController
+class SchoolController < ApplicationController
   def index
-    @schools = School.all
+    @school = School.all
   end
 
   def show
@@ -32,7 +32,7 @@ class SchoolsController < ApplicationController
     @school.school_name = params[:school_name]
 
     if @school.save
-      redirect_to "/schools", :notice => "School updated successfully."
+      redirect_to "/school", :notice => "School updated successfully."
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class SchoolsController < ApplicationController
 
     @school.destroy
 
-    redirect_to "/schools", :notice => "School deleted."
+    redirect_to "/school", :notice => "School deleted."
   end
 end

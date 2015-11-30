@@ -31,8 +31,30 @@
     <%= f.collection_select :user_school, School.all, :id, :school_name %>
   </div>
 
+  <div class="field">
+    <%= f.label :pri_ind %><br />
+    <%= f.collection_select :pri_ind, Industry.all, :id, :industry_name %>
+  </div>
 
+  <div class="field">
+    <%= f.label :pri_reg %><br />
+    <%= f.collection_select :pri_reg, Region.all, :id, :region_name %>
+  </div>
 
+  <div class="field">
+    <%= f.label :oth_ind %><br />
+    <%= f.collection_select :oth_ind, Industry.all, :id, :industry_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :oth_reg %><br />
+    <%= f.collection_select :oth_reg, Region.all, :id, :region_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prev_ind %><br />
+    <%= f.collection_select :prev_ind, Industry.all, :id, :industry_name %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

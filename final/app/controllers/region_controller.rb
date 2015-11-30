@@ -1,4 +1,4 @@
-class RegionsController < ApplicationController
+class RegionController < ApplicationController
   def index
     @regions = Region.all
   end
@@ -16,7 +16,7 @@ class RegionsController < ApplicationController
     @region.region_name = params[:region_name]
 
     if @region.save
-      redirect_to "/regions", :notice => "Region created successfully."
+      redirect_to "/region", :notice => "Region created successfully."
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class RegionsController < ApplicationController
     @region.region_name = params[:region_name]
 
     if @region.save
-      redirect_to "/regions", :notice => "Region updated successfully."
+      redirect_to "/region", :notice => "Region updated successfully."
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class RegionsController < ApplicationController
 
     @region.destroy
 
-    redirect_to "/regions", :notice => "Region deleted."
+    redirect_to "/region", :notice => "Region deleted."
   end
 end

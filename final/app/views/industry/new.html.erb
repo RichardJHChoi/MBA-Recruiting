@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Industry #<%= @industry.id %></h3>
+  <h3>Add Industry</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_industry/<%= @industry.id %>" method="post">
+    <form action="/create_industry" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -27,11 +27,11 @@
         <input type="text" id="industry_name" name="industry_name" placeholder="Industry name" class="form-control" value="<%= @industry.industry_name %>">
       </div>
 
-      <button class="btn btn-warning">
-        Update Industry
+      <button class="btn btn-success">
+        Create Industry
       </button>
       or
-      <a href="/industries/<%= @industry.id %>">Cancel</a>
+      <a href="/industry">Cancel</a>
     </form>
   </div>
 </div>

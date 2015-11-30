@@ -103,53 +103,53 @@ Rails.application.routes.draw do
 
   # Routes for the Region resource:
   # CREATE
-  get "/regions/new", :controller => "regions", :action => "new"
-  post "/create_region", :controller => "regions", :action => "create"
+  get "/region/new", :controller => "region", :action => "new"
+  post "/create_region", :controller => "region", :action => "create"
 
   # READ
-  get "/regions", :controller => "regions", :action => "index"
-  get "/regions/:id", :controller => "regions", :action => "show"
+  get "/region", :controller => "region", :action => "index"
+  get "/region/:id", :controller => "region", :action => "show"
 
   # UPDATE
-  get "/regions/:id/edit", :controller => "regions", :action => "edit"
-  post "/update_region/:id", :controller => "regions", :action => "update"
+  get "/region/:id/edit", :controller => "region", :action => "edit"
+  post "/update_region/:id", :controller => "region", :action => "update"
 
   # DELETE
-  get "/delete_region/:id", :controller => "regions", :action => "destroy"
+  get "/delete_region/:id", :controller => "region", :action => "destroy"
   #------------------------------
 
   # Routes for the Industry resource:
   # CREATE
-  get "/industries/new", :controller => "industries", :action => "new"
-  post "/create_industry", :controller => "industries", :action => "create"
+  get "/industry/new", :controller => "industry", :action => "new"
+  post "/create_industry", :controller => "industry", :action => "create"
 
   # READ
-  get "/industries", :controller => "industries", :action => "index"
-  get "/industries/:id", :controller => "industries", :action => "show"
+  get "/industry", :controller => "industry", :action => "index"
+  get "/industry/:id", :controller => "industry", :action => "show"
 
   # UPDATE
-  get "/industries/:id/edit", :controller => "industries", :action => "edit"
-  post "/update_industry/:id", :controller => "industries", :action => "update"
+  get "/industry/:id/edit", :controller => "industry", :action => "edit"
+  post "/update_industry/:id", :controller => "industry", :action => "update"
 
   # DELETE
-  get "/delete_industry/:id", :controller => "industries", :action => "destroy"
+  get "/delete_industry/:id", :controller => "industry", :action => "destroy"
   #------------------------------
 
   # Routes for the School resource:
   # CREATE
-  get "/schools/new", :controller => "schools", :action => "new"
-  post "/create_school", :controller => "schools", :action => "create"
+  get "/school/new", :controller => "school", :action => "new"
+  post "/create_school", :controller => "school", :action => "create"
 
   # READ
-  get "/schools", :controller => "schools", :action => "index"
-  get "/schools/:id", :controller => "schools", :action => "show"
+  get "/school", :controller => "school", :action => "index"
+  get "/school/:id", :controller => "school", :action => "show"
 
   # UPDATE
-  get "/schools/:id/edit", :controller => "schools", :action => "edit"
-  post "/update_school/:id", :controller => "schools", :action => "update"
+  get "/school/:id/edit", :controller => "school", :action => "edit"
+  post "/update_school/:id", :controller => "school", :action => "update"
 
   # DELETE
-  get "/delete_school/:id", :controller => "schools", :action => "destroy"
+  get "/delete_school/:id", :controller => "school", :action => "destroy"
   #------------------------------
 
   root 'interactions#index'

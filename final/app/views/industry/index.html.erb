@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Industries
-    <a href="/industries/new" class="btn btn-lg btn-success">New Industry</a>
+    Industry
+    <a href="/industry/new" class="btn btn-lg btn-success">New Industry</a>
   </h1>
 </div>
 
@@ -13,12 +13,12 @@
         <th>Actions</th>
       </tr>
 
-      <% @industries.each do |industry| %>
+      <% @industry.each do |industry| %>
       <tr>
         <td><%= industry.industry_name %></td>
         <td>
-          <a href="/industries/<%= industry.id %>" class="btn btn-primary">Show</a>
-          <a href="/industries/<%= industry.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/industry/<%= industry.id %>" class="btn btn-primary">Show</a>
+          <a href="/industry/<%= industry.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_industry/<%= industry.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
