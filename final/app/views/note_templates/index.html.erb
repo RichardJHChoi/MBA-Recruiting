@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Note templates
+    <a href="/note_templates/new" class="btn btn-lg btn-success">New Note template</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Interaction type</th>
+        <th>School affinity</th>
+        <th>Min score</th>
+        <th>Max score</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @note_templates.each do |note_template| %>
+      <tr>
+        <td><%= note_template.interaction_type %></td>
+        <td><%= note_template.school_affinity %></td>
+        <td><%= note_template.min_score %></td>
+        <td><%= note_template.max_score %></td>
+        <td>
+          <a href="/note_templates/<%= note_template.id %>" class="btn btn-primary">Show</a>
+          <a href="/note_templates/<%= note_template.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_note_template/<%= note_template.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Corporate #<%= @corporate.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Corp name</dt>
+      <dd><%= @corporate.corp_name %></dd>
+
+      <dt>Corp ind</dt>
+      <dd><%= @corporate.corp_ind %></dd>
+
+      <dt>Corp reg</dt>
+      <dd><%= @corporate.corp_reg %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/corporates" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/corporates/<%= @corporate.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_corporate/<%= @corporate.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

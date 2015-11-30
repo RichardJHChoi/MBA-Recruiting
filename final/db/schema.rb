@@ -11,7 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128220038) do
+ActiveRecord::Schema.define(version: 20151130200835) do
+
+  create_table "corporates", force: :cascade do |t|
+    t.string   "corp_name"
+    t.integer  "corp_ind"
+    t.integer  "corp_reg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string   "industry_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interaction_types", force: :cascade do |t|
+    t.string   "int_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.integer  "rec_id"
+    t.integer  "int_type"
+    t.integer  "int_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "note_templates", force: :cascade do |t|
+    t.integer  "interaction_type"
+    t.integer  "school_affinity"
+    t.integer  "min_score"
+    t.integer  "max_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recruiters", force: :cascade do |t|
+    t.string   "rec_name"
+    t.integer  "rec_corp"
+    t.integer  "rec_school"
+    t.string   "rec_email"
+    t.string   "rec_mobile"
+    t.string   "rec_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "region_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "school_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_notes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "interaction_id"
+    t.integer  "note_template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

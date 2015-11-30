@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @interaction.errors.any? %>
+  <% @interaction.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Interaction #<%= @interaction.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_interaction/<%= @interaction.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for rec_id -->
+      <div class="form-group">
+        <label for="rec_id" class="control-label">
+          Rec
+        </label>
+
+        <input type="text" id="rec_id" name="rec_id" placeholder="Rec" class="form-control" value="<%= @interaction.rec_id %>">
+      </div>
+
+      <!-- Label and input for int_type -->
+      <div class="form-group">
+        <label for="int_type" class="control-label">
+          Int type
+        </label>
+
+        <input type="text" id="int_type" name="int_type" placeholder="Int type" class="form-control" value="<%= @interaction.int_type %>">
+      </div>
+
+      <!-- Label and input for int_score -->
+      <div class="form-group">
+        <label for="int_score" class="control-label">
+          Int score
+        </label>
+
+        <input type="text" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Interaction
+      </button>
+      or
+      <a href="/interactions/<%= @interaction.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

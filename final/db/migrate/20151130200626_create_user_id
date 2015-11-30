@@ -1,0 +1,11 @@
+class CreateUserId < ActiveRecord::Migration
+  def change
+    create_table :user_id:integers do |t|
+      t.integer :interaction_id
+      t.integer :note_template_id
+
+      t.timestamps
+
+    end
+  end
+end

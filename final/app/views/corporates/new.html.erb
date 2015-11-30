@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @corporate.errors.any? %>
+  <% @corporate.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Corporate</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_corporate" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for corp_name -->
+      <div class="form-group">
+        <label for="corp_name" class="control-label">
+          Corp name
+        </label>
+
+        <input type="text" id="corp_name" name="corp_name" placeholder="Corp name" class="form-control" value="<%= @corporate.corp_name %>">
+      </div>
+
+      <!-- Label and input for corp_ind -->
+      <div class="form-group">
+        <label for="corp_ind" class="control-label">
+          Corp ind
+        </label>
+
+        <input type="text" id="corp_ind" name="corp_ind" placeholder="Corp ind" class="form-control" value="<%= @corporate.corp_ind %>">
+      </div>
+
+      <!-- Label and input for corp_reg -->
+      <div class="form-group">
+        <label for="corp_reg" class="control-label">
+          Corp reg
+        </label>
+
+        <input type="text" id="corp_reg" name="corp_reg" placeholder="Corp reg" class="form-control" value="<%= @corporate.corp_reg %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Corporate
+      </button>
+      or
+      <a href="/corporates">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Recruiters
+    <a href="/recruiters/new" class="btn btn-lg btn-success">New Recruiter</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Rec name</th>
+        <th>Rec corp</th>
+        <th>Rec school</th>
+        <th>Rec email</th>
+        <th>Rec mobile</th>
+        <th>Rec phone</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @recruiters.each do |recruiter| %>
+      <tr>
+        <td><%= recruiter.rec_name %></td>
+        <td><%= recruiter.rec_corp %></td>
+        <td><%= recruiter.rec_school %></td>
+        <td><%= recruiter.rec_email %></td>
+        <td><%= recruiter.rec_mobile %></td>
+        <td><%= recruiter.rec_phone %></td>
+        <td>
+          <a href="/recruiters/<%= recruiter.id %>" class="btn btn-primary">Show</a>
+          <a href="/recruiters/<%= recruiter.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_recruiter/<%= recruiter.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

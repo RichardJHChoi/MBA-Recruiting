@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_note resource:
+  # CREATE
+  get "/user_notes/new", :controller => "user_notes", :action => "new"
+  post "/create_user_note", :controller => "user_notes", :action => "create"
+
+  # READ
+  get "/user_notes", :controller => "user_notes", :action => "index"
+  get "/user_notes/:id", :controller => "user_notes", :action => "show"
+
+  # UPDATE
+  get "/user_notes/:id/edit", :controller => "user_notes", :action => "edit"
+  post "/update_user_note/:id", :controller => "user_notes", :action => "update"
+
+  # DELETE
+  get "/delete_user_note/:id", :controller => "user_notes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Note_template resource:
   # CREATE
   get "/note_templates/new", :controller => "note_templates", :action => "new"
@@ -135,7 +152,7 @@ Rails.application.routes.draw do
   get "/delete_school/:id", :controller => "schools", :action => "destroy"
   #------------------------------
 
-  root 'user#index'
+  root 'interactions#index'
   
   devise_for :users
   

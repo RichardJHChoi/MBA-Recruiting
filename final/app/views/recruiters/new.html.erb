@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @recruiter.errors.any? %>
+  <% @recruiter.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recruiter</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recruiter" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for rec_name -->
+      <div class="form-group">
+        <label for="rec_name" class="control-label">
+          Rec name
+        </label>
+
+        <input type="text" id="rec_name" name="rec_name" placeholder="Rec name" class="form-control" value="<%= @recruiter.rec_name %>">
+      </div>
+
+      <!-- Label and input for rec_corp -->
+      <div class="form-group">
+        <label for="rec_corp" class="control-label">
+          Rec corp
+        </label>
+
+        <input type="text" id="rec_corp" name="rec_corp" placeholder="Rec corp" class="form-control" value="<%= @recruiter.rec_corp %>">
+      </div>
+
+      <!-- Label and input for rec_school -->
+      <div class="form-group">
+        <label for="rec_school" class="control-label">
+          Rec school
+        </label>
+
+        <input type="text" id="rec_school" name="rec_school" placeholder="Rec school" class="form-control" value="<%= @recruiter.rec_school %>">
+      </div>
+
+      <!-- Label and input for rec_email -->
+      <div class="form-group">
+        <label for="rec_email" class="control-label">
+          Rec email
+        </label>
+
+        <input type="text" id="rec_email" name="rec_email" placeholder="Rec email" class="form-control" value="<%= @recruiter.rec_email %>">
+      </div>
+
+      <!-- Label and input for rec_mobile -->
+      <div class="form-group">
+        <label for="rec_mobile" class="control-label">
+          Rec mobile
+        </label>
+
+        <input type="text" id="rec_mobile" name="rec_mobile" placeholder="Rec mobile" class="form-control" value="<%= @recruiter.rec_mobile %>">
+      </div>
+
+      <!-- Label and input for rec_phone -->
+      <div class="form-group">
+        <label for="rec_phone" class="control-label">
+          Rec phone
+        </label>
+
+        <input type="text" id="rec_phone" name="rec_phone" placeholder="Rec phone" class="form-control" value="<%= @recruiter.rec_phone %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recruiter
+      </button>
+      or
+      <a href="/recruiters">Cancel</a>
+    </form>
+  </div>
+</div>
