@@ -5,6 +5,14 @@ class UserNotesController < ApplicationController
 
   def show
     @user_note = UserNote.find(params[:id])
+
+    if current_user.user_school == @user_note.interaction.recruiter.rec_school
+        @school_affinity = true
+      else
+        @school_affinity = false
+    end
+    @note_template.where("interaction_type=? AND school_affinity=? AND min_score<=? AND max_score>=?",
+      @user_note.interaction.interaction_type, @school_affinity , @user_note.interaction.int_score, @user_note.interaction.int_score)
   end
 
   def new

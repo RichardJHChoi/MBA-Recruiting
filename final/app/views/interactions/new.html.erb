@@ -21,35 +21,38 @@
       <!-- Label and input for rec_id -->
       <div class="form-group">
         <label for="rec_id" class="control-label">
-          Rec
+          Recruiter's Name
         </label>
 
-        <input type="text" id="rec_id" name="rec_id" placeholder="Rec" class="form-control" value="<%= @interaction.rec_id %>">
+        <input type="text" id="rec_id" name="rec_id" placeholder="Type recruiter's name" class="form-control" value="<%= @interaction.rec_id %>">
       </div>
 
-      <!-- Label and input for int_type -->
-      <div class="form-group">
-        <label for="int_type" class="control-label">
-          Int type
-        </label>
 
-        <input type="text" id="int_type" name="int_type" placeholder="Int type" class="form-control" value="<%= @interaction.int_type %>">
-      </div>
 
-      <!-- Label and input for int_score -->
-      <div class="form-group">
-        <label for="int_score" class="control-label">
-          Int score
-        </label>
 
-        <input type="text" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
-      </div>
+    <select name="int_type">
+      <% @interaction_type.each do |type| %>
+        <option value="<%= type.id %>"> <%= type.int_type %> </option>
+      <% end %>
+    </select>
 
-      <button class="btn btn-success">
-        Create Interaction
-      </button>
-      or
-      <a href="/interactions">Cancel</a>
-    </form>
+
+
+
+  <!-- Label and input for int_score -->
+  <div class="form-group">
+    <label for="int_score" class="control-label">
+      Interation Score
+    </label>
+
+    <input type="text" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
   </div>
+
+  <button class="btn btn-success">
+    Create Interaction
+  </button>
+  or
+  <a href="/interactions">Cancel</a>
+</form>
+</div>
 </div>

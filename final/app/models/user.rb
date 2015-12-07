@@ -5,17 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :recruiters
-  belongs_to :user_school, :foreign_key => 'user_school', :class_name => 'School'
+  belongs_to :school, :foreign_key => 'user_school', :class_name => 'School'
   has_many :interactions, :dependent => :destroy
 
-  belongs_to :pri_ind, :foreign_key => 'pri_ind', :class_name => 'Industry'
-  belongs_to :oth_ind, :foreign_key => 'oth_ind', :class_name => 'Industry'  
-  belongs_to :prev_ind, :foreign_key => 'prev_ind', :class_name => "Industry"
-  belongs_to :pri_reg, :foreign_key => 'pri_reg', :class_name => 'Region'
+  belongs_to :primary_industry, :foreign_key => 'pri_ind', :class_name => 'Industry'
+  belongs_to :other_industry, :foreign_key => 'oth_ind', :class_name => 'Industry'  
+  belongs_to :previous_industry, :foreign_key => 'prev_ind', :class_name => "Industry"
+  belongs_to :primary_region, :foreign_key => 'pri_reg', :class_name => 'Region'
 
+  has_many :user_notes
 
   validates :username, :user_school, :pri_ind, :pri_reg, :prev_ind, :presence => true
-
-
+  validates :username, :uniqueness => true
 
 end

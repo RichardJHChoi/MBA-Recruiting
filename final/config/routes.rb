@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+   devise_for :users
+
   # Routes for the User_note resource:
   # CREATE
   get "/user_notes/new", :controller => "user_notes", :action => "new"
@@ -152,9 +154,9 @@ Rails.application.routes.draw do
   get "/delete_school/:id", :controller => "school", :action => "destroy"
   #------------------------------
 
-  root 'interactions#index'
+  root 'recruiters#index'
   
-  devise_for :users
+ 
   
 
   # The priority is based upon order of creation: first created -> highest priority.

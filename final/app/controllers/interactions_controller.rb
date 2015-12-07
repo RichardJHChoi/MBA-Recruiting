@@ -9,16 +9,26 @@ class InteractionsController < ApplicationController
 
   def new
     @interaction = Interaction.new
+    @interaction_type = InteractionType.all
   end
 
   def create
     @interaction = Interaction.new
     @interaction.user_id = params[:user_id]
     @interaction.rec_id = params[:rec_id]
-    @interaction.school_affinity = params[:school_affinity]
-    @interaction.user_comment = params[:user_comment]
+    # @interaction.school_affinity = params[:school_affinity]
+    # @interaction.user_comment = params[:user_comment]
     @interaction.int_type = params[:int_type]
     @interaction.int_score = params[:int_score]
+
+    #Helper variable that checks recruiter status. so no instance variable required
+    recruiter =  Recruiter.find_by(params[:rec_id])
+      if recruiter.rec_school == current_user.user_school
+        @interaction.school_affinity = true
+      else 
+        @interaction.school_affinity = false
+      end
+
 
     if @interaction.save
       redirect_to "/interactions", :notice => "Interaction created successfully."

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130200835) do
+ActiveRecord::Schema.define(version: 20151207015010) do
 
   create_table "corporates", force: :cascade do |t|
     t.string   "corp_name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20151130200835) do
     t.integer  "int_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "school_affinity"
   end
 
   create_table "note_templates", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151130200835) do
     t.integer  "max_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "industry_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
