@@ -9,9 +9,10 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Rec</th>
+        <th>Recruiter Name</th>
         <th>Int type</th>
         <th>Int score</th>
+        <th>School Affinity</th>
         <th>Actions</th>
       </tr>
 
@@ -20,6 +21,7 @@
         <td><%= interaction.rec_id %></td>
         <td><%= interaction.int_type %></td>
         <td><%= interaction.int_score %></td>
+        <td><%= interaction.school_affinity %></td>
         <td>
           <a href="/interactions/<%= interaction.id %>" class="btn btn-primary">Show</a>
           <a href="/interactions/<%= interaction.id %>/edit" class="btn btn-warning">Edit</a>

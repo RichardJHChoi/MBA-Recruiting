@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @interaction.errors.any? %>
-  <% @interaction.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @interaction.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -18,41 +18,51 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for rec_id -->
+      <!-- Label and input for recruiter name -->
       <div class="form-group">
-        <label for="rec_id" class="control-label">
+        <label for="rec_name" class="control-label">
           Recruiter's Name
         </label>
 
-        <input type="text" id="rec_id" name="rec_id" placeholder="Type recruiter's name" class="form-control" value="<%= @interaction.rec_id %>">
+        <select name="rec_name">
+          <% recruiter.each do |recruiter| %>
+          <option value="<%= recruiter.id %>"> <%= recruiter.rec_name %> </option>
+          <% end %>
+        </select>
       </div>
 
+      <!-- Label and input for Interaction Type -->
+      <div class="form-group">
+        <label for="int_type" class="control-label">
+          Interaction Type
+        </label>
+
+        <select name="int_type">
+          <% @interaction_types.each do |type| %>
+          <option value="<%= type.id %>"> <%= type.int_type %> </option>
+          <% end %>
+        </select>
+      </div>
+
+      <!-- Label and input for int_score -->
+      <div class="form-group">
+        <label for="int_score" class="control-label">
+          Interation Score
+        </label>
+
+        <input type="integer" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
+      </div>
+
+      <!-- Label and input for school_affinity -->
+        <input type="hidden" id="school_affinity" name="school_affinity" value= <% @interaction.school_affinity %>>
+      
 
 
-
-    <select name="int_type">
-      <% @interaction_type.each do |type| %>
-        <option value="<%= type.id %>"> <%= type.int_type %> </option>
-      <% end %>
-    </select>
-
-
-
-
-  <!-- Label and input for int_score -->
-  <div class="form-group">
-    <label for="int_score" class="control-label">
-      Interation Score
-    </label>
-
-    <input type="text" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
+      <button class="btn btn-success">
+        Create Interaction
+      </button>
+      or
+      <a href="/interactions">Cancel</a>
+    </form>
   </div>
-
-  <button class="btn btn-success">
-    Create Interaction
-  </button>
-  or
-  <a href="/interactions">Cancel</a>
-</form>
-</div>
 </div>

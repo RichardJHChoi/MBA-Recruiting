@@ -19,6 +19,7 @@ class RecruitersController < ApplicationController
     @recruiter.rec_email = params[:rec_email]
     @recruiter.rec_mobile = params[:rec_mobile]
     @recruiter.rec_phone = params[:rec_phone]
+    @recruiter.user_id = current_user.id
 
     if @recruiter.save
       redirect_to "/recruiters", :notice => "Recruiter created successfully."

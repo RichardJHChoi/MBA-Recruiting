@@ -1,6 +1,6 @@
 class InteractionType < ActiveRecord::Base
 
-  belongs_to :interaction_type
+  has_many :interactions
 
   validates :int_type, :presence => true, :uniqueness => true
 

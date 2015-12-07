@@ -9,15 +9,17 @@ class InteractionsController < ApplicationController
 
   def new
     @interaction = Interaction.new
-    @interaction_type = InteractionType.all
+    @interaction_types = InteractionType.all
+    @recruiter = current_user.recruiters
+    # raise @recruiter.inspect
   end
 
   def create
     @interaction = Interaction.new
     @interaction.user_id = params[:user_id]
     @interaction.rec_id = params[:rec_id]
-    # @interaction.school_affinity = params[:school_affinity]
-    # @interaction.user_comment = params[:user_comment]
+    @interaction.school_affinity = params[:school_affinity]
+    @interaction.user_comment = params[:user_comment]
     @interaction.int_type = params[:int_type]
     @interaction.int_score = params[:int_score]
 
@@ -29,10 +31,10 @@ class InteractionsController < ApplicationController
         @interaction.school_affinity = false
       end
 
-
-    if @interaction.save
+  if @interaction.save
       redirect_to "/interactions", :notice => "Interaction created successfully."
     else
+      @interaction_types = InteractionType.all
       render 'new'
     end
   end
