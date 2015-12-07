@@ -9,6 +9,8 @@ class RecruitersController < ApplicationController
 
   def new
     @recruiter = Recruiter.new
+    @corporate = Corporate.all
+    @school = School.all
   end
 
   def create
@@ -24,12 +26,16 @@ class RecruitersController < ApplicationController
     if @recruiter.save
       redirect_to "/recruiters", :notice => "Recruiter created successfully."
     else
+      @corporate = Corporate.all
+      @school = School.all
       render 'new'
     end
   end
 
   def edit
     @recruiter = Recruiter.find(params[:id])
+    @corporate = Corporate.all
+    @school = School.all
   end
 
   def update

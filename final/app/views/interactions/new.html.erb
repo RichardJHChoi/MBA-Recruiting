@@ -25,7 +25,7 @@
         </label>
 
         <select name="rec_name">
-          <% recruiter.each do |recruiter| %>
+          <% @recruiter.each do |recruiter| %>
           <option value="<%= recruiter.id %>"> <%= recruiter.rec_name %> </option>
           <% end %>
         </select>

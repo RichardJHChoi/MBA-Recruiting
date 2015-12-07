@@ -21,7 +21,7 @@
       <!-- Label and input for rec_name -->
       <div class="form-group">
         <label for="rec_name" class="control-label">
-          Rec name
+          Name
         </label>
 
         <input type="text" id="rec_name" name="rec_name" placeholder="Rec name" class="form-control" value="<%= @recruiter.rec_name %>">
@@ -30,25 +30,33 @@
       <!-- Label and input for rec_corp -->
       <div class="form-group">
         <label for="rec_corp" class="control-label">
-          Rec corp
+          Company
         </label>
 
-        <input type="text" id="rec_corp" name="rec_corp" placeholder="Rec corp" class="form-control" value="<%= @recruiter.rec_corp %>">
+        <select name="rec_corp">
+          <% @corporate.each do |corp| %>
+          <option value="<%= corp.id %>"> <%= corp.corp_name %> </option>
+          <% end %>
+        </select>  
       </div>
 
       <!-- Label and input for rec_school -->
       <div class="form-group">
         <label for="rec_school" class="control-label">
-          Rec school
+          MBA Program
         </label>
 
-        <input type="text" id="rec_school" name="rec_school" placeholder="Rec school" class="form-control" value="<%= @recruiter.rec_school %>">
+        <select name="rec_school">
+          <% @school.each do |school| %>
+          <option value="<%= school.id %>"> <%= school.school_name %> </option>
+          <% end %>
+        </select>   
       </div>
 
       <!-- Label and input for rec_email -->
       <div class="form-group">
         <label for="rec_email" class="control-label">
-          Rec email
+          E-mail
         </label>
 
         <input type="text" id="rec_email" name="rec_email" placeholder="Rec email" class="form-control" value="<%= @recruiter.rec_email %>">
@@ -57,7 +65,7 @@
       <!-- Label and input for rec_mobile -->
       <div class="form-group">
         <label for="rec_mobile" class="control-label">
-          Rec mobile
+          Mobile Number
         </label>
 
         <input type="text" id="rec_mobile" name="rec_mobile" placeholder="Rec mobile" class="form-control" value="<%= @recruiter.rec_mobile %>">
@@ -66,7 +74,7 @@
       <!-- Label and input for rec_phone -->
       <div class="form-group">
         <label for="rec_phone" class="control-label">
-          Rec phone
+          Office Number
         </label>
 
         <input type="text" id="rec_phone" name="rec_phone" placeholder="Rec phone" class="form-control" value="<%= @recruiter.rec_phone %>">
