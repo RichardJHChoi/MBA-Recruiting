@@ -9,6 +9,8 @@ class CorporatesController < ApplicationController
 
   def new
     @corporate = Corporate.new
+    @industry = Industry.all
+    @region = Region.all
   end
 
   def create
@@ -20,6 +22,8 @@ class CorporatesController < ApplicationController
     if @corporate.save
       redirect_to "/corporates", :notice => "Corporate created successfully."
     else
+      @industry = Industry.all
+      @region = Region.all
       render 'new'
     end
   end

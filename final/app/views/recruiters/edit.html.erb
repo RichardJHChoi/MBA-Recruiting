@@ -33,11 +33,7 @@
           Company
         </label>
 
-        <select name="rec_corp">
-          <% @corporate.each do |corp| %>
-          <option value="<%= corp.id %>"> <%= corp.corp_name %> </option>
-          <% end %>
-        </select>  
+        <%= select_tag "rec_corp", options_from_collection_for_select(@corporate, :id, :corp_name, @recruiter.rec_corp) %>
       </div>
 
       <!-- Label and input for rec_school -->
@@ -46,11 +42,7 @@
           MBA Program
         </label>
 
-        <select name="rec_school">
-          <% @school.each do |school| %>
-          <option value="<%= school.id %>"> <%= school.school_name %> </option>
-          <% end %>
-        </select>   
+        <%= select_tag "rec_school", options_from_collection_for_select(@school, :id, :school_name, @recruiter.rec_school) %>
       </div>
 
       <!-- Label and input for rec_email -->

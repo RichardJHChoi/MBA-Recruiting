@@ -21,7 +21,7 @@
       <!-- Label and input for corp_name -->
       <div class="form-group">
         <label for="corp_name" class="control-label">
-          Corp name
+          Company Name
         </label>
 
         <input type="text" id="corp_name" name="corp_name" placeholder="Corp name" class="form-control" value="<%= @corporate.corp_name %>">
@@ -30,19 +30,27 @@
       <!-- Label and input for corp_ind -->
       <div class="form-group">
         <label for="corp_ind" class="control-label">
-          Corp ind
+          Industry
         </label>
 
-        <input type="text" id="corp_ind" name="corp_ind" placeholder="Corp ind" class="form-control" value="<%= @corporate.corp_ind %>">
+        <select name="corp_ind">
+          <% @industry.each do |industry| %>
+          <option value="<%= industry.id %>"> <%= industry.industry_name %> </option>
+          <% end %>
+        </select>
       </div>
 
       <!-- Label and input for corp_reg -->
       <div class="form-group">
         <label for="corp_reg" class="control-label">
-          Corp reg
+          Office Location
         </label>
 
-        <input type="text" id="corp_reg" name="corp_reg" placeholder="Corp reg" class="form-control" value="<%= @corporate.corp_reg %>">
+        <select name="corp_reg">
+          <% @region.each do |region| %>
+          <option value="<%= region.id %>"> <%= region.region_name %> </option>
+          <% end %>
+        </select>
       </div>
 
       <button class="btn btn-success">

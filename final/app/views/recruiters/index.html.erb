@@ -21,8 +21,8 @@
       <% @recruiters.each do |recruiter| %>
       <tr>
         <td><%= recruiter.rec_name %></td>
-        <td><%= recruiter.rec_corp %></td>
-        <td><%= recruiter.rec_school %></td>
+        <td><%= recruiter.corporate.corp_name if recruiter.corporate %></td>
+        <td><%= recruiter.school.school_name if recruiter.school %></td>
         <td><%= recruiter.rec_email %></td>
         <td><%= recruiter.rec_mobile %></td>
         <td><%= recruiter.rec_phone %></td>

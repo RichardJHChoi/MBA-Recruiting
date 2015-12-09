@@ -18,6 +18,7 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+
       <!-- Label and input for recruiter name -->
       <div class="form-group">
         <label for="rec_name" class="control-label">
@@ -26,7 +27,7 @@
 
         <select name="rec_name">
           <% @recruiter.each do |recruiter| %>
-          <option value="<%= recruiter.id %>"> <%= recruiter.rec_name %> </option>
+          <option value="<%= recruiter.id %>"> <%= recruiter.rec_name %> / <%= recruiter.corporate.corp_name %> / <%= recruiter.rec_email %> </option>
           <% end %>
         </select>
       </div>
@@ -50,7 +51,13 @@
           Interation Score
         </label>
 
-        <input type="integer" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>">
+        <select>
+          <% (1..10).each do |score|%>
+          <option value="<%= score %>"> <%= score %> </option>
+          <% end %>
+        </select>
+
+        <!-- <input type="integer" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>"> -->
       </div>
 
       <!-- Label and input for school_affinity -->

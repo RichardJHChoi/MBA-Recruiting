@@ -10,6 +10,7 @@ class InteractionsController < ApplicationController
   def new
     @interaction = Interaction.new
     @interaction_types = InteractionType.all
+    @corporate = Corporate.all
     @recruiter = current_user.recruiters
     # raise @recruiter.inspect
   end
