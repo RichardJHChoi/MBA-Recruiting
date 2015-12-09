@@ -24,7 +24,7 @@
           Name
         </label>
 
-        <input type="text" id="rec_name" name="rec_name" placeholder="Rec name" class="form-control" value="<%= @recruiter.rec_name %>">
+        <input type="text" id="rec_name" name="rec_name" placeholder="Recruiter's name" class="form-control" value="<%= @recruiter.rec_name %>">
       </div>
 
       <!-- Label and input for rec_corp -->
@@ -39,7 +39,7 @@
       <!-- Label and input for rec_school -->
       <div class="form-group">
         <label for="rec_school" class="control-label">
-          MBA Program
+          School
         </label>
 
         <%= select_tag "rec_school", options_from_collection_for_select(@school, :id, :school_name, @recruiter.rec_school) %>
@@ -51,7 +51,7 @@
           E-mail
         </label>
 
-        <input type="text" id="rec_email" name="rec_email" placeholder="Rec email" class="form-control" value="<%= @recruiter.rec_email %>">
+        <input type="text" id="rec_email" name="rec_email" placeholder="Recruiter's email" class="form-control" value="<%= @recruiter.rec_email %>">
       </div>
 
       <!-- Label and input for rec_mobile -->
@@ -60,7 +60,7 @@
           Mobile Number
         </label>
 
-        <input type="text" id="rec_mobile" name="rec_mobile" placeholder="Rec mobile" class="form-control" value="<%= @recruiter.rec_mobile %>">
+        <input type="text" id="rec_mobile" name="rec_mobile" placeholder="Recruiter's mobile" class="form-control" value="<%= @recruiter.rec_mobile %>">
       </div>
 
       <!-- Label and input for rec_phone -->
@@ -69,7 +69,7 @@
           Office Number
         </label>
 
-        <input type="text" id="rec_phone" name="rec_phone" placeholder="Rec phone" class="form-control" value="<%= @recruiter.rec_phone %>">
+        <input type="text" id="rec_phone" name="rec_phone" placeholder="Recruiter's office phone" class="form-control" value="<%= @recruiter.rec_phone %>">
       </div>
 
       <button class="btn btn-warning">

@@ -13,6 +13,7 @@
         <th>School affinity</th>
         <th>Min score</th>
         <th>Max score</th>
+        <th>Note Template</th>
         <th>Actions</th>
       </tr>
 
@@ -22,6 +23,7 @@
         <td><%= note_template.school_affinity %></td>
         <td><%= note_template.min_score %></td>
         <td><%= note_template.max_score %></td>
+        <td><%= note_template.template %></td>
         <td>
           <a href="/note_templates/<%= note_template.id %>" class="btn btn-primary">Show</a>
           <a href="/note_templates/<%= note_template.id %>/edit" class="btn btn-warning">Edit</a>

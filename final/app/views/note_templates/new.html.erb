@@ -24,7 +24,11 @@
           Interaction type
         </label>
 
-        <input type="text" id="interaction_type" name="interaction_type" placeholder="Interaction type" class="form-control" value="<%= @note_template.interaction_type %>">
+        <select name="interaction_type">
+          <% @interaction_type.each do |type| %>
+          <option value="<%= type.id %>"> <%= type.int_type %> </option>
+          <% end %>
+        </select>    
       </div>
 
       <!-- Label and input for school_affinity -->
@@ -39,19 +43,36 @@
       <!-- Label and input for min_score -->
       <div class="form-group">
         <label for="min_score" class="control-label">
-          Min score
+          Min Score
         </label>
 
-        <input type="text" id="min_score" name="min_score" placeholder="Min score" class="form-control" value="<%= @note_template.min_score %>">
+        <select>
+          <% (1..10).each do |min_score|%>
+          <option value="<%= min_score %>"> <%= min_score %> </option>
+          <% end %>
+        </select>
       </div>
 
       <!-- Label and input for max_score -->
       <div class="form-group">
         <label for="max_score" class="control-label">
-          Max score
+          Max Score
         </label>
 
-        <input type="text" id="max_score" name="max_score" placeholder="Max score" class="form-control" value="<%= @note_template.max_score %>">
+        <select>
+          <% (1..10).each do |max_score|%>
+          <option value="<%= max_score %>"> <%= max_score %> </option>
+          <% end %>
+        </select>
+      </div>
+
+      <!-- Label and input for note_template -->
+      <div class="form-group">
+        <label for="template" class="control-label">
+          Thank You Note Template
+        </label>
+
+        <input type="text" id="template" name="template" placeholder="Write your note template" class="form-control" value="<%= @note_template.template %>">
       </div>
 
       <button class="btn btn-success">

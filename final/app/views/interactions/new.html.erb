@@ -32,6 +32,14 @@
         </select>
       </div>
 
+      <!-- Label and input for school_affinity -->
+      <div class="form-group">
+        <label for="school_affinity" class="control-label">
+          School Affinity
+        </label>
+        <input type="integer" id="school_affinity" name="school_affinity" placeholder= "<% @interaction.school_affinity %>" value= <% @interaction.school_affinity %>>
+      </div>
+
       <!-- Label and input for Interaction Type -->
       <div class="form-group">
         <label for="int_type" class="control-label">
@@ -48,21 +56,25 @@
       <!-- Label and input for int_score -->
       <div class="form-group">
         <label for="int_score" class="control-label">
-          Interation Score
+          Interaction Score
         </label>
 
         <select>
-          <% (1..10).each do |score|%>
-          <option value="<%= score %>"> <%= score %> </option>
+          <% (1..10).each do |int_score|%>
+          <option value="<%= int_score %>"> <%= int_score %> </option>
           <% end %>
         </select>
-
-        <!-- <input type="integer" id="int_score" name="int_score" placeholder="Int score" class="form-control" value="<%= @interaction.int_score %>"> -->
       </div>
 
-      <!-- Label and input for school_affinity -->
-        <input type="hidden" id="school_affinity" name="school_affinity" value= <% @interaction.school_affinity %>>
-      
+
+
+      <!-- Label and input for user_comment -->
+      <div class="form-group">
+        <label for="user_comment" class="control-label">
+          Interaction Summary
+        </label>
+        <input type="text" id="user_comment" name="user_comment" placeholder= "Type summary and key points of the recruiter interaction" value= <% @interaction.user_comment %>>
+      </div>
 
 
       <button class="btn btn-success">

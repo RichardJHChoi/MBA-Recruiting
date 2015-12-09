@@ -12,7 +12,6 @@ class InteractionsController < ApplicationController
     @interaction_types = InteractionType.all
     @corporate = Corporate.all
     @recruiter = current_user.recruiters
-    # raise @recruiter.inspect
   end
 
   def create
@@ -36,6 +35,8 @@ class InteractionsController < ApplicationController
       redirect_to "/interactions", :notice => "Interaction created successfully."
     else
       @interaction_types = InteractionType.all
+      @corporate = Corporate.all
+      @recruiter = current_user.recruiters
       render 'new'
     end
   end

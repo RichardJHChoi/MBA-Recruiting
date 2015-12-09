@@ -9,6 +9,7 @@ class NoteTemplatesController < ApplicationController
 
   def new
     @note_template = NoteTemplate.new
+    @interaction_type = InteractionType.all
   end
 
   def create
@@ -21,6 +22,7 @@ class NoteTemplatesController < ApplicationController
     if @note_template.save
       redirect_to "/note_templates", :notice => "Note template created successfully."
     else
+      @interaction_type = InteractionType.all
       render 'new'
     end
   end

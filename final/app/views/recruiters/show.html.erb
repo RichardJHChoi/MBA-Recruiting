@@ -5,25 +5,47 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Rec name</dt>
+
+      <dt>Name</dt>
       <dd><%= @recruiter.rec_name %></dd>
 
-      <dt>Rec corp</dt>
-      <dd><%= @recruiter.rec_corp %></dd>
+      <dt>Company / Region</dt>
+      <dd><%= @recruiter.corporate.corp_name %> / <%= @recruiter.corporate.region.region_name %></dd>
 
-      <dt>Rec school</dt>
-      <dd><%= @recruiter.rec_school %></dd>
+      <dt>School</dt>
+      <dd><%= @recruiter.school.school_name %></dd>
 
-      <dt>Rec email</dt>
+      <dt>Email</dt>
       <dd><%= @recruiter.rec_email %></dd>
 
-      <dt>Rec mobile</dt>
+      <dt>Mobile</dt>
       <dd><%= @recruiter.rec_mobile %></dd>
 
-      <dt>Rec phone</dt>
+      <dt>Office Phone</dt>
       <dd><%= @recruiter.rec_phone %></dd>
 
     </dl>
+
+
+    <!-- Interaction information summary -->
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Interaction Date</th>
+          <th>Interaction Type</th>
+          <th>Interaction Score</th>
+          <th>Interaction Summary</th>
+        </tr>
+
+        <% @interaction.each do |interaction| %>
+        <tr>
+          <td><%= @interaction.created_at %></td>
+          <td><%= @interaction.int_type %></td>
+          <td><%= @interaction.int_score %></td>
+          <td><%= @interaction.user_comment %></td>
+        </tr>
+        <% end %>
+      </table>
+    
 
     <div class="btn-group btn-group-justified">
       <a href="/recruiters" class="btn btn-primary">
@@ -32,8 +54,11 @@
       <a href="/recruiters/<%= @recruiter.id %>/edit" class="btn btn-warning">
         Edit
       </a>
-      <a href="/delete_recruiter/<%= @recruiter.id %>" class="btn btn-danger" rel="nofollow">
+      <a href="/delete_recruiter/<%= @recruiter.id %>" class="btn btn-primary">
         Delete
+      </a>
+      <a href="/interactions/new" class="btn btn-warning" rel="nofollow">
+        New Interaction
       </a>
     </div>
   </div>

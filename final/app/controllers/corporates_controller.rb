@@ -30,6 +30,8 @@ class CorporatesController < ApplicationController
 
   def edit
     @corporate = Corporate.find(params[:id])
+    @industry = Industry.all
+    @region = Region.all
   end
 
   def update

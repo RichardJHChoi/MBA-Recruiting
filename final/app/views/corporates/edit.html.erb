@@ -21,7 +21,7 @@
       <!-- Label and input for corp_name -->
       <div class="form-group">
         <label for="corp_name" class="control-label">
-          Corp name
+          Company Name
         </label>
 
         <input type="text" id="corp_name" name="corp_name" placeholder="Corp name" class="form-control" value="<%= @corporate.corp_name %>">
@@ -30,19 +30,19 @@
       <!-- Label and input for corp_ind -->
       <div class="form-group">
         <label for="corp_ind" class="control-label">
-          Corp ind
+          Industry
         </label>
-
-        <input type="text" id="corp_ind" name="corp_ind" placeholder="Corp ind" class="form-control" value="<%= @corporate.corp_ind %>">
+     
+        <%= select_tag "corp_ind", options_from_collection_for_select(@industry, :id, :industry_name, @corporate.corp_ind) %>
       </div>
 
       <!-- Label and input for corp_reg -->
       <div class="form-group">
         <label for="corp_reg" class="control-label">
-          Corp reg
+          Region
         </label>
 
-        <input type="text" id="corp_reg" name="corp_reg" placeholder="Corp reg" class="form-control" value="<%= @corporate.corp_reg %>">
+        <%= select_tag "corp_reg", options_from_collection_for_select(@region, :id, :region_name, @corporate.corp_reg) %>
       </div>
 
       <button class="btn btn-warning">

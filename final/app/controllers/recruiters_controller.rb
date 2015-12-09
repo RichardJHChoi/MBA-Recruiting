@@ -5,6 +5,7 @@ class RecruitersController < ApplicationController
 
   def show
     @recruiter = Recruiter.find(params[:id])
+    @interaction = Interaction.all
   end
 
   def new
