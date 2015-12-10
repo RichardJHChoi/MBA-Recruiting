@@ -17,20 +17,19 @@
         <th>Average Interaction Score</th>
         <th>Actions</th>
       </tr>
-
       <% @recruiters.each do |recruiter| %>
       <tr>
         <td><%= recruiter.rec_name %></td>
         <td><%= recruiter.corporate.corp_name if recruiter.corporate %> / <%= recruiter.corporate.region.region_name if recruiter.corporate %></td>
         <td><%= recruiter.school.school_name if recruiter.school %></td>
         <td><%= recruiter.rec_email %></td>
-        <td><%=  %></td>
+        <td><%= recruiter %></td>
         <td><%=  %></td>
         <td>
           <a href="/recruiters/<%= recruiter.id %>" class="btn-sm">Show</a>
           <a href="/recruiters/<%= recruiter.id %>/edit" class="btn-sm">Edit</a>
           <a href="/delete_recruiter/<%= recruiter.id %>" class="btn-sm">Delete</a>
-          <a href="/interactions/new" class="btn-sm btn-primary" rel="nofollow">New Interaction</a>
+          <a href="/interactions/new?id=<%= recruiter.id %>" class="btn-sm btn-primary" rel="nofollow">New Interaction</a>
         </td>
       </tr>
       <% end %>

@@ -57,7 +57,7 @@
       <a href="/delete_recruiter/<%= @recruiter.id %>" class="btn btn-primary">
         Delete
       </a>
-      <a href="/interactions/new" class="btn btn-warning" rel="nofollow">
+      <a href="/interactions/new?rec_name=<%= @recruiter.id %>" class="btn btn-warning" rel="nofollow">
         New Interaction
       </a>
     </div>

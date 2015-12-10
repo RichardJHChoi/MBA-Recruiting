@@ -6,6 +6,7 @@ class Recruiter < ActiveRecord::Base
   belongs_to :rec_ind, :foreign_key => 'rec_industry', :class_name => 'Industry'
   belongs_to :region, :foreign_key => 'rec_reg', :class_name => 'Corporate'
   has_many :user_notes
+  has_many :interactions
 
   validates :rec_name, :rec_corp, :rec_school, :rec_email, :presence => true
   validates :rec_email, :uniqueness => true
