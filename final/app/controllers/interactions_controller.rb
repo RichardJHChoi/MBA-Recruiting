@@ -1,6 +1,7 @@
 class InteractionsController < ApplicationController
   def index
     @interactions = Interaction.all
+    @recruiter = Recruiter.all
   end
 
   def show
@@ -18,6 +19,7 @@ class InteractionsController < ApplicationController
     @interaction = Interaction.new
     @interaction.user_id = params[:user_id]
     @interaction.rec_id = params[:rec_id]
+    @interaction.rec_name = params[:rec_name]
     @interaction.school_affinity = params[:school_affinity]
     @interaction.user_comment = params[:user_comment]
     @interaction.int_type = params[:int_type]

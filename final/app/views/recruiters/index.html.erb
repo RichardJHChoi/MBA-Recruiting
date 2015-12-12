@@ -23,7 +23,7 @@
         <td><%= recruiter.corporate.corp_name if recruiter.corporate %> / <%= recruiter.corporate.region.region_name if recruiter.corporate %></td>
         <td><%= recruiter.school.school_name if recruiter.school %></td>
         <td><%= recruiter.rec_email %></td>
-        <td><%= recruiter %></td>
+        <td><%= @interaction %></td>
         <td><%=  %></td>
         <td>
           <a href="/recruiters/<%= recruiter.id %>" class="btn-sm">Show</a>

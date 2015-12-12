@@ -36,12 +36,12 @@
           <th>Interaction Summary</th>
         </tr>
 
-        <% @interaction.each do |interaction| %>
+        <% @interactions.each do |interaction| %>
         <tr>
-          <td><%= @interaction.created_at %></td>
-          <td><%= @interaction.int_type %></td>
-          <td><%= @interaction.int_score %></td>
-          <td><%= @interaction.user_comment %></td>
+          <td><%= interaction.created_at %></td>
+          <td><%= interaction.int_type %></td>
+          <td><%= interaction.int_score %></td>
+          <td><%= interaction.user_comment %></td>
         </tr>
         <% end %>
       </table>
@@ -57,7 +57,7 @@
       <a href="/delete_recruiter/<%= @recruiter.id %>" class="btn btn-primary">
         Delete
       </a>
-      <a href="/interactions/new?rec_name=<%= @recruiter.id %>" class="btn btn-warning" rel="nofollow">
+      <a href="/interactions/new?id=<%= @recruiter.id %>" class="btn btn-warning" rel="nofollow">
         New Interaction
       </a>
     </div>

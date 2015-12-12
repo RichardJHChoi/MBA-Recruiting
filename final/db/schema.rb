@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210012938) do
+ActiveRecord::Schema.define(version: 20151212214509) do
 
   create_table "corporates", force: :cascade do |t|
     t.string   "corp_name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151210012938) do
     t.text     "user_comment"
     t.string   "rec_name"
     t.integer  "interaction_id"
+    t.string   "interaction_type"
   end
 
   create_table "note_templates", force: :cascade do |t|
